@@ -1,0 +1,24 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create zip
+        run: |
+          zip -r booktoon-tracker-${GITHUB_REF_NAME}.zip . \
+            -x ".git/*" ".github/*" ".vscode/*" "node_modules/*"
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: booktoon-tracker-${{ github.ref_name }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

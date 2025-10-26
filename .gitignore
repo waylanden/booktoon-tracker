@@ -1,0 +1,23 @@
+# Logs & OS
+.DS_Store
+Thumbs.db
+
+# Node / tooling
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build artefacts
+dist/
+build/
+coverage/
+
+# Editors
+.vscode/
+.idea/
+
+# Env
+.env
+.env.*
+

@@ -1,32 +1,35 @@
 {
   "manifest_version": 3,
   "name": "Booktoon Tracker",
-  "description": "Track reading progress and updates on booktoon/webtoon sites.",
   "version": "0.1.0",
+  "description": "Extension MV3 pour suivre des webtoons/ebooks avec journalisation.",
   "action": {
     "default_title": "Booktoon Tracker",
     "default_popup": "popup/popup.html"
   },
-  "options_ui": {
-    "page": "options/options.html",
-    "open_in_tab": true
-  },
+  "options_page": "options/options.html",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "permissions": [
     "storage",
     "tabs",
-    "activeTab",
     "scripting"
   ],
   "host_permissions": [
     "<all_urls>"
   ],
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["logger.js", "content.js"],
+      "js": ["content.js"],
       "run_at": "document_idle"
     }
   ]

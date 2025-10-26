@@ -1,0 +1,29 @@
+<!--
+  Popup UI minimale pour Booktoon Tracker
+  - Affiche niveau de log, liste des entrées et actions (rafraîchir, effacer, exporter)
+-->
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Booktoon Tracker</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Booktoon Tracker</h1>
+      <div id="level"></div>
+    </header>
+    <main>
+      <div class="actions">
+        <button id="refresh">Rafraîchir</button>
+        <button id="clear">Effacer</button>
+        <button id="export">Exporter JSON</button>
+      </div>
+      <ul id="logs"></ul>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+  </html>
+
