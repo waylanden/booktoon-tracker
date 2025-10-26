@@ -1,5 +1,5 @@
 // content.js — Détection automatique (70% scroll ou 20s) + "Marquer comme lu"
-import { Adapters } from './adapters.js';
+// Note: pas d'import ES module en content script; `Adapters` est exposé par src/adapters.js
 
 // Envoie des logs vers le background (affichés dans Options > Journal)
 function debugLog(level, message, data) {
@@ -75,4 +75,3 @@ function setup(info) {
     setup(info);
   }
 })();
-

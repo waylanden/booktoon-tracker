@@ -1,6 +1,6 @@
 // bg.js — Service Worker MV3 (stockage, alias, logs, menu contextuel)
 import { Storage } from './storage.js';
-import { log, LOG_LEVELS, setLogLevel } from './logger.js';
+import { log, LOG_LEVELS, setLogLevel, getLogs, clearLogs } from './logger.js';
 
 const KEY_SERIES = 'series_index';
 const KEY_SETTINGS = 'settings';
@@ -47,12 +47,10 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
         sendResponse({ ok: true });
         break;
       case 'GET_LOGS': {
-        const { getLogs } = await import('./logger.js');
         sendResponse(await getLogs());
         break;
       }
       case 'CLEAR_LOGS': {
-        const { clearLogs } = await import('./logger.js');
         await clearLogs();
         sendResponse({ ok: true });
         break;
@@ -124,4 +122,3 @@ function findCanonicalTitle(title, aliasesMap) {
   }
   return null;
 }
-
