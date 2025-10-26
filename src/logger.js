@@ -16,6 +16,10 @@ export async function setLogLevel(level) {
   await logger.setLevel(level);
 }
 
+export async function getLogLevel() {
+  return logger.getLevel();
+}
+
 export async function getLogs() {
   return logger.getLogs();
 }
@@ -23,4 +27,3 @@ export async function getLogs() {
 export async function clearLogs() {
   return logger.clear();
 }
-

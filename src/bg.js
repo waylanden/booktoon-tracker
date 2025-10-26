@@ -1,6 +1,6 @@
 // bg.js — Service Worker MV3 (stockage, alias, logs, menu contextuel)
 import { Storage } from './storage.js';
-import { log, LOG_LEVELS, setLogLevel, getLogs, clearLogs } from './logger.js';
+import { log, LOG_LEVELS, setLogLevel, getLogLevel, getLogs, clearLogs } from './logger.js';
 
 const KEY_SERIES = 'series_index';
 const KEY_SETTINGS = 'settings';
@@ -52,6 +52,16 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       }
       case 'CLEAR_LOGS': {
         await clearLogs();
+        sendResponse({ ok: true });
+        break;
+      }
+      case 'GET_LEVEL': {
+        const level = await getLogLevel();
+        sendResponse({ level });
+        break;
+      }
+      case 'SET_LEVEL': {
+        await setLogLevel(msg.level);
         sendResponse({ ok: true });
         break;
       }
