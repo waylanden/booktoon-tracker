@@ -8,8 +8,12 @@ h1 { font-size: 16px; margin: 0 0 4px; }
 button { padding: 6px 10px; }
 #logs { list-style: none; margin: 0; padding: 8px 12px; max-height: 400px; overflow: auto; }
 #logs li { padding: 4px 0; border-bottom: 1px dashed #e5e7eb; }
+.actions + #series-section { border-bottom: 1px solid #e5e7eb; }
+#series-section { padding: 8px 12px; }
+#series-section h2 { margin: 0 0 6px; font-size: 13px; color: #334155; }
+#series { list-style: none; margin: 0; padding: 0; }
+#series li { padding: 4px 0; border-bottom: 1px dashed #e5e7eb; }
 .level-debug { color: #64748b; }
 .level-info { color: #1f2937; }
 .level-warn { color: #b45309; }
 .level-error { color: #b91c1c; font-weight: 600; }
-
