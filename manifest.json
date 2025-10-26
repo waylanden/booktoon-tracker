@@ -1,37 +1,33 @@
 {
   "manifest_version": 3,
-  "name": "Booktoon Tracker",
+  "name": "booktoon-tracker",
   "version": "0.1.0",
-  "description": "Extension MV3 pour suivre des webtoons/ebooks avec journalisation.",
+  "description": "Suivi local de progression (manga/webtoon/ebook) avec métadonnées, notes, alias, export JSON/CSV et journal interne.",
   "action": {
-    "default_title": "Booktoon Tracker",
+    "default_title": "booktoon-tracker",
     "default_popup": "popup/popup.html"
   },
-  "options_page": "options/options.html",
+  "options_ui": {
+    "page": "options/index.html",
+    "open_in_tab": true
+  },
   "background": {
-    "service_worker": "background.js",
+    "service_worker": "src/bg.js",
     "type": "module"
   },
-  "permissions": [
-    "storage",
-    "tabs",
-    "scripting"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "permissions": ["storage", "activeTab", "contextMenus"],
+  "host_permissions": ["<all_urls>"],
   "icons": {
-    "16": "icon16.png",
-    "32": "icon32.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "run_at": "document_idle"
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/adapters.js", "src/utils.js", "src/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
     }
   ]
 }
-

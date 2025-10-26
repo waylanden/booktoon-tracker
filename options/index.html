@@ -1,0 +1,33 @@
+<!--
+  Redondance de la page d'options au format options_ui (open_in_tab).
+-->
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Options — Booktoon Tracker</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Options</h1>
+      <label>
+        Niveau de log
+        <select id="level">
+          <option>DEBUG</option>
+          <option selected>INFO</option>
+          <option>WARN</option>
+          <option>ERROR</option>
+        </select>
+      </label>
+      <div class="actions">
+        <button id="save">Enregistrer</button>
+        <button id="test-debug">Log DEBUG</button>
+        <button id="test-error">Log ERROR</button>
+      </div>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+  </html>
+
